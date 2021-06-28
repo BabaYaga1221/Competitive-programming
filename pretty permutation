@@ -1,10 +1,10 @@
-PRETTY PERMUTATION -(REFERENCE TO CODEFORCES)
+PRETTY PERMUTATION ->(REFERENCE TO CODEFORCES)
 
 There are n cats in a line, labeled from 1 to n, with the i-th cat at position i. They are bored of gyrating in the same spot all day, so they want to reorder themselves such that no cat is in the same place as before. They are also lazy, so they want to minimize the total distance they move. Help them decide what cat should be at each location after the reordering.
 
 For example, if there are 3 cats, this is a valid reordering: [3,1,2]. No cat is in its original position. The total distance the cats move is 1+1+2=4 as cat 1 moves one place to the right, cat 2 moves one place to the right, and cat 3 moves two places to the left.
 
-LOGIC- since all cats are sitting 1 to n and all cats are lazy, so they try move as minimum as they can. So replacing every cat with every other cat will create right algorithm. But if number of cats are odd, then problem rise. for example, [1,2,3]->[2,1,3],using above example we can see that if the number of cats are odd, then last cat do not change its place. So, for approaching this problem, we can actually first arrange 3 cats using above example in question, then we left even number of cats. then we can apply same logic in it. For example, [1,2,3,4,5]->[3,1,2,5,4], in this example, we arrange first 3 cats in 3,1,2 order then we left with 2 cats and they interchange their places.
+LOGIC-> since all cats are sitting 1 to n and all cats are lazy, so they try move as minimum as they can. So replacing every cat with every other cat will create right algorithm. But if number of cats are odd, then problem rise. for example, [1,2,3]->[2,1,3],using above example we can see that if the number of cats are odd, then last cat do not change its place. So, for approaching this problem, we can actually first arrange 3 cats using above example in question, then we left even number of cats. then we can apply same logic in it. For example, [1,2,3,4,5]->[3,1,2,5,4], in this example, we arrange first 3 cats in 3,1,2 order then we left with 2 cats and they interchange their places.
 
 CODE- 
       #include <iostream>
