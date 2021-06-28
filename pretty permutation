@@ -17,6 +17,7 @@ LOGIC-> since all cats are sitting 1 to n and all cats are lazy, so they try mov
         we arrange first 3 cats in 3,1,2 order then we left with 2 cats and they interchange their places.
 
 CODE- 
+      //language used C++.
       #include <iostream>
       #include<vector>
       using namespace std;
