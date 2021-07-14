@@ -1,0 +1,95 @@
+#B-Alphabetical Strings -> (REFERENCE TO CODEFORCES)
+
+A string s of length n (1≤n≤26) is called alphabetical if it can be obtained using the following algorithm:
+
+first, write an empty string to s (i.e. perform the assignment s := "");
+then perform the next step n times;
+at the i-th step take i-th lowercase letter of the Latin alphabet and write it either to the left of the string s or to the right of the string s (i.e. perform the assignment s := c+s or s := s+c, where c is the i-th letter of the Latin alphabet).
+In other words, iterate over the n first letters of the Latin alphabet starting from 'a' and etc. Each time we prepend a letter to the left of the string s or append a letter to the right of the string s. Strings that can be obtained in that way are alphabetical.
+
+For example, the following strings are alphabetical: "a", "ba", "ab", "bac" and "ihfcbadeg". The following strings are not alphabetical: "z", "aa", "ca", "acb", "xyz" and "ddcba".
+
+From the given string, determine if it is alphabetical.
+
+# LOGIC:
+		The logic of the program is so simple. First, we will identify 'a' in a given string. If 'a' is not present in a string, then print "NO" else futher we check two things:-
+		1- If the 'a' is present(for example, at 5 position), the we check if 'b' is present to the LEFT or RIGHT of the 'a' and then after if 'b' found we check if 'c' is present next to 'b' or next to 'c'. For example, 'bac', we see that 'b' is present left to the 'a' and 'c' is right to 'a'. So, we print "YES".
+		2- if the above condition not satisfied then print "NO".
+	examples- 	11
+			a                      YES
+			ba                     YES
+			ab                     YES
+			bac                    YES
+			ihfcbadeg              YES
+			z                      NO
+			aa                     NO
+			ca                     NO
+			acb                    NO
+			xyz                    NO
+			ddcba                  NO
+
+# CODE: 
+		//bismillahi rehmanir-raheem
+		#include<iostream>
+		#include<vector>
+		#include<string>
+		#include<algorithm>
+		using namespace std;
+ 
+		int main()
+		{
+		int t;
+		cin>>t;
+		while(t--)
+		{
+    		string s;
+    		string b="abcdefghijklmnopqrstuvwxyz";
+    		int c=0,q=0;
+    		bool p=true;
+    		cin>>s;
+    		int n=s.length();
+    		for(int i=0;i<n;i++)
+    		{
+        		if(s[i]=='a' && n==1)
+        		{
+            			c=c+i;
+            			q++;
+        		}
+        		else if(s[i]=='a')
+        		{
+        		    c=c+i;
+         		    q++;
+       			}
+    		}
+    		if(q!=0)
+    		{
+    		int r=c,l=c;
+    		for(int i=1;i<n;i++)
+    		{
+        
+        		if(s[r+1]==b[i])
+        		{
+           			 r++;
+ 
+        		}
+        		else if(s[l-1]==b[i])
+        		{
+            			l--;
+        		}
+        		else
+        		{
+            		p=false;
+            		break;
+        		}
+    		}
+    		if(p==false)
+        		cout<<"NO"<<endl;
+    		else
+        		cout<<"YES"<<endl;
+    		}
+    		else
+        		cout<<"NO"<<endl;
+		}	
+    		return 0;
+		}	
+
