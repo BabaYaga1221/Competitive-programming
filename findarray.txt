@@ -1,0 +1,50 @@
+# FIND THE ARRAY ->(REFERENCE TO CODEFORCES)
+
+Let's call an array a consisting of n positive (greater than 0) integers beautiful if the following condition is held for every i from 1 to n: either ai=1, or at least one of the numbers ai−1 and ai−2 exists in the array as well.
+
+For example:
+
+the array [5,3,1] is beautiful: for a1, the number a1−2=3 exists in the array; for a2, the number a2−2=1 exists in the array; for a3, the condition a3=1 holds;
+the array [1,2,2,2,2] is beautiful: for a1, the condition a1=1 holds; for every other number ai, the number ai−1=1 exists in the array;
+the array [1,4] is not beautiful: for a2, neither a2−2=2 nor a2−1=3 exists in the array, and a2≠1;
+the array [2] is not beautiful: for a1, neither a1−1=1 nor a1−2=0 exists in the array, and a1≠1;
+the array [2,1,3] is beautiful: for a1, the number a1−1=1 exists in the array; for a2, the condition a2=1 holds; for a3, the number a3−2=1 exists in the array.
+You are given a positive integer s. Find the minimum possible size of a beautiful array with the sum of elements equal to s.
+
+#LOGIC->
+
+	The logic of this problem is simple but little bit twisty. In this question, the value of 's' is given user and we need to find a minimum length of array which is sum of all elements of array is equal to 's'. Since, we given 3 condition to follow :-
+		
+		1)- one of the element must be 1 ,i.e, a[i]=1.
+		2)- one of the element must be equal to array's element by using a[i]-1 .
+		3)- one of the element must be equal to array's element by using a[i]-2.
+
+If, any of the condition follow through whole array and sum of array also equal to 's'.Then length of  is our answer. So, basically we need to find minimun numbers from which 's' is made by summing. So, i used to loop from 1 to n and increase a value of counter by 2 to hold our condition.The code of this program can made all the theory easy.
+
+#CODE->
+	//bismillahi rehmanir-raheem
+	//language used C++.
+	#include<iostream>
+	#include<vector>
+	#include<algorithm>
+	using namespace std;
+ 
+	int main()
+	{
+		int t;
+		cin>>t;
+		while(t--)
+		{
+    			int s,c=1,sum=1;
+    			cin>>s;
+    			int ans=1;
+    			while(sum<s)
+    			{
+        			c=c+2;
+        			sum=sum+c;
+        			ans++;
+    			}
+    		cout<<ans<<endl;
+		}
+    	return 0;
+	}
