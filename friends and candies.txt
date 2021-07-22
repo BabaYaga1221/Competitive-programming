@@ -1,0 +1,55 @@
+#B- Friends And Candies -> (REFERENCE TO CODEFORCES)
+
+Polycarp has n friends, the i-th of his friends has ai candies. Polycarp's friends do not like when they have different numbers of candies. In other words they want all ai to be the same. To solve this, Polycarp performs the following set of actions exactly once:
+
+Polycarp chooses k (0≤k≤n) arbitrary friends (let's say he chooses friends with indices i1,i2,…,ik);
+Polycarp distributes their ai1+ai2+…+aik candies among all n friends. During distribution for each of ai1+ai2+…+aik candies he chooses new owner. That can be any of n friends. Note, that any candy can be given to the person, who has owned that candy before the distribution process.
+Note that the number k is not fixed in advance and can be arbitrary. Your task is to find the minimum value of k.
+
+For example, if n=4 and a=[4,5,2,5], then Polycarp could make the following distribution of the candies:
+
+Polycarp chooses k=2 friends with indices i=[2,4] and distributes a2+a4=10 candies to make a=[4,4,4,4] (two candies go to person 3).
+Note that in this example Polycarp cannot choose k=1 friend so that he can redistribute candies so that in the end all ai are equal.
+
+For the data n and a, determine the minimum value k. With this value k, Polycarp should be able to select k friends and redistribute their candies so that everyone will end up with the same number of candies.
+
+#LOGIC ->
+
+	The logic of this question is simple. You need to calculate the sum of candies which is given in a form array. After calculating sum, if sum of array is not divisble by n, i.e. ,(sum%div!=0). Then the answer is -1. Else, if sum is divisble with n, then we only increament our conuter variable if candies at i-th index is greater then quotient of sum by n. And, our counter variable is a answer.
+	I know this whole text is rubbish. I think you understand it better by seeing code.
+
+#CODE ->
+	//bismillahi rehmanir-raheem
+	#include<iostream>
+	#include<vector>
+	#include<algorithm>
+	using namespace std;
+ 
+	int main()
+	{
+		int t;
+		cin>>t;
+		while(t--)
+		{
+    			int n,sum=0,c=0;
+    			cin>>n;
+    			std::vector<int>v(n+1);
+    			for(int i=0;i<n;i++)
+    			{
+        			cin>>v[i];
+        			sum+=v[i];
+    			}
+    			if(sum%n==0)
+    			{
+        			for(int i=0;i<n;i++)
+        			{
+            				if(v[i]>sum/n)
+                				c++;
+        			}
+        			cout<<c<<endl;
+    			}
+    			else
+        			cout<<-1<<endl;
+		}
+    		return 0;
+	}
