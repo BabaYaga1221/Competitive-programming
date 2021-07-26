@@ -7,8 +7,8 @@ Formally, let a denote the sum of weights in the first pile, and b denote the su
 
 #LOGIC ->
 
-        My logic of this problem is littlr bit different from other logic.
-        There is a sequence that the answer is always the difference of (n/2)th element and 1st element.
+        My logic of this problem is little bit different from other logic.
+        There is a sequence that the answer is always the difference of (n/2)th element to 1st element.
         For more understanding, here is the code.
 
 #CODE ->
