@@ -4,13 +4,16 @@ The Berland capital is shaken with three bold crimes committed by the Pihsters, 
 
 The Berland capital's map is represented by an n × m rectangular table. Each cell of the table on the map represents some districts of the capital.
 
-The capital's main detective Polycarpus took a map and marked there the districts where the first three robberies had been committed as asterisks. Deduction tells Polycarpus that the fourth robbery will be committed in such district, that all four robbed districts will form the vertices of some rectangle, parallel to the sides of the map.
+The capital's main detective Polycarpus took a map and marked there the districts where the first three robberies had been committed as asterisks. 
+Deduction tells Polycarpus that the fourth robbery will be committed in such district, that all four robbed districts will form the vertices of some rectangle,
+parallel to the sides of the map.
 
 Polycarpus is good at deduction but he's hopeless at math. So he asked you to find the district where the fourth robbery will be committed.
 
 #LOGIC ->
 	
-	This question trick me but approach is simple. First, count the columes and rows in 2 seperate array for '*'. After counting columes and rows, sort then in ascending order. Then , check if any 2 elements are equal in colume's array then one who is unequal is answer for colume. Similarly for row's array.
+	This question trick me but approach is simple. First, count the columes and rows in 2 seperate array for '*'. After counting columes and rows, sort then in ascending order. 
+	Then , check if any 2 elements are equal in colume's array then one who is unequal is answer for colume. Similarly for row's array.
 
 #CODE ->
 	#include<iostream>
