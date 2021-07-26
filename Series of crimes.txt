@@ -1,0 +1,66 @@
+#A- Series of crimes -> (REFERENCE TO CODEFORCES)
+
+The Berland capital is shaken with three bold crimes committed by the Pihsters, a notorious criminal gang.
+
+The Berland capital's map is represented by an n × m rectangular table. Each cell of the table on the map represents some districts of the capital.
+
+The capital's main detective Polycarpus took a map and marked there the districts where the first three robberies had been committed as asterisks. Deduction tells Polycarpus that the fourth robbery will be committed in such district, that all four robbed districts will form the vertices of some rectangle, parallel to the sides of the map.
+
+Polycarpus is good at deduction but he's hopeless at math. So he asked you to find the district where the fourth robbery will be committed.
+
+#LOGIC ->
+	
+	This question trick me but approach is simple. First, count the columes and rows in 2 seperate array for '*'. After counting columes and rows, sort then in ascending order. Then , check if any 2 elements are equal in colume's array then one who is unequal is answer for colume. Similarly for row's array.
+
+#CODE ->
+	#include<iostream>
+	#include<algorithm>
+ 
+	using namespace std;
+	int main()
+	{
+    		int n,m;
+    		cin>>n>>m;
+    		char a[n][m];
+    		int r[3]={0,0,0};
+    		int c[3]={0,0,0};
+    		for(int i=0;i<n;i++)
+    		{
+        		for(int j=0;j<m;j++)
+        		{
+            			cin>>a[i][j];
+        		}
+    		}
+    		int p=0,q=0;
+    		for(int i=0;i<n;i++)
+    		{
+        		for(int j=0;j<m;j++)
+        		{
+            			if(a[i][j]=='*')
+            			{
+                			r[p]=i+1;
+                			c[p]=j+1;
+                			p++;
+            			}
+        		}
+    		}
+    		sort(r,r+3);
+    		sort(c,c+3);
+    		if(r[0]==r[1])
+    		{
+        		if(c[0]==c[1])
+            			cout<<r[2]<<" "<<c[2]<<endl;
+        	else
+            		cout<<r[2]<<" "<<c[0]<<endl;
+    		}
+    		else if(r[1]==r[2])
+    		{
+        		if(c[0]==c[1])
+            			cout<<r[0]<<" "<<c[2]<<endl;
+        	else
+            		cout<<r[0]<<" "<<c[0]<<endl;
+    		}
+  
+ 		return 0;   
+	}	
+	
