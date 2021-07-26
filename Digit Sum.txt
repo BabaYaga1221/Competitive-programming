@@ -1,0 +1,47 @@
+#A- Digit Sum ->(REFERENCE TO CODEFORCES)
+
+Let's define S(x) to be the sum of digits of number x written in decimal system. For example, S(5)=5, S(10)=1, S(322)=7.
+
+We will call an integer x interesting if S(x+1)<S(x). In each test you will be given one integer n. 
+Your task is to calculate the number of integers x such that 1≤x≤n and x is interesting.
+
+# LOGIC ->
+	
+	The logic of the question is simple and I will explain in two steps -
+
+  	1)- If 'n' is greater than or equal to 1 AND less than or equal to 8, then answer is 0. 
+	    Else if 'n' equals to 9, then answer is 1.
+
+	2)- If 'n' is greater than or equal to 10, then if its last digit is less than 9, answer is n/10.
+	    Else if last digit is equal to 9, answer is (n/10)+1.
+
+# CODE->
+	//bismillahi rehmanir-raheem
+	#include<iostream>
+	#include<vector>
+	#include<algorithm>	
+	using namespace std;
+ 
+	int main()
+	{
+		int t;
+		cin>>t;
+		while(t--)
+		{
+    			long long int n;
+    			cin>>n;
+    			if(n>=1 && n<=8)
+        			cout<<0<<endl;
+    			else if(n==9)
+        			cout<<1<<endl;
+    			else
+    			{
+        			int q=n%10;
+        			if(q<9)
+            				cout<<n/10<<endl;
+        			else if(q==9)
+            				cout<<(n/10)+1<<endl;
+    			}
+		}
+    		return 0;
+	} 
