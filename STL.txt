@@ -1,0 +1,126 @@
+(about array)
+TOPIC: std::array
+Syntax : std::array<type,size>name;
+(notice)
+{
+    1. std::array is a container that encapsulates fixed size array.
+    2. array size neended at compilation time.
+    3.access elements by-
+        a. .at()
+        b. []
+        c. front()
+        d. back()
+        e. data() //give accessto the underlying array.
+}
+
+#include<iostream>
+#include<array>
+using namespace std;
+int main()
+{
+    //declare
+    std::array<int,5>myarray;
+    //intialization
+    std::array<int,5>myarray={1,2,3,4,5}
+    std::array<int,5>myarray2;
+    myarray2={1,2,3,4,5}
+}
+
+
+TOPIC: std::vector
+
+(notes)
+{
+    1. std::vector is a sequence container and also know as dynamic array or array list.
+    2.Its size can grow and shrink dynamically , and no  need to provide size at at compile time.
+}
+
+(elements access)
+{
+    .at(),[],.front(),.back(),.data("this .data() actually points the pointer of the array")
+}
+(Modifiers)
+{
+    .insert(),.emplace(),.push_back(),.emplace_back(),.pop_back(),.resize(),.swap(),.erase(),.clear()
+    //important .reserve()- it reserve the capacity of dynamic array so that processing unit use less and no more copies can made. 
+}
+
+//example
+#include<iostream>
+#include<vector>
+using namespace std;
+int main()
+{
+    //declaration
+    std::vector<int> arr1;
+    std::vector<int> arr2 (5,20); //range of size declaration
+    std::vector<int> arr3={1,2,3,4,5};
+    std::vector<int> arr4 {1,2,3,4,5};
+    
+    //Accessing elements
+    arr2[3]=10;
+    arr2.at(3)=10;
+}
+
+TOPIC: container inside container
+(we can use any container inside container and usually use at time competative programmig)
+//example
+#include<iostream>
+#include<vector>
+using namespace std;
+int main()
+{
+    std::vector<vector<int>> tree;
+    int edge,n1,n2;
+    cin>>edge;
+    tree.resize(edge)
+    for(int i=0;i<edge;i++)
+    {
+        cin>>n1>>n2;            //input taken
+        tree[n1].push_back(n2); //intializing input in the form of tree.
+    }
+    for(const auto &e1: tree){
+        for(const auto &e2:e1)
+        {
+            cout<<e2; //printing output.
+        }
+    }
+    return 0;
+}
+
+TOPIC: Emplace in stl
+notice
+{
+    1. All the containers supports insert and emplace operation to store data.
+    2. emplace use to construct object in place and avoids unnecessary copy of objects.
+    3. Insert and Emplace is Equal for premetive data types but when  we deal with heavy objects, we should use emplace if we can for 
+    efficiency.
+}
+//example
+#include<iostream>
+#include<set>
+using namespace std;
+class A
+{
+    public:
+    int x;
+    A(int x=0): x{x} {cout<<"construct"<<endl;};
+    A(const A& rhs) {x=rhs.x; cout<<"copy"<<endl;}
+};
+
+bool operator < (const A& lhs, const A& rhs){return lhs.x < rhs.x;}
+int main()
+{
+    set<A> Set;
+    Set.insert(A(1));
+    Set.emplace(10);
+    return 0;
+}
+TOPIC: Forward list
+(Refres - STL in one video at (01:03:27))
+
+TOPIC: list in STL
+(Refer : STL in one video(01:17:08))
+
+TOPIC: Map in STL
+(Refer : STL in one video(01:26:00))
